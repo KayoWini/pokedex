@@ -16,6 +16,20 @@ const POKEMONS = [
         imageUrl:
             'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
     },
+    {
+        id: 4,
+        name: 'Charmander',
+        type: 'Fogo',
+        imageUrl:
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
+    },
+    {
+        id: 7,
+        name: 'Squitle',
+        type: 'Água',
+        imageUrl:
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
+    },
 
 ]
 
@@ -36,16 +50,24 @@ function PokemonList() {
                 value={filtro}
                 onChange={(e) => setFiltro(e.target.value)}
                 placeholder="Ex.: char"
+
             />
-            {listaFiltrada.map((pokemon) => (
-                <PokemonCard
-                    key={pokemon.id}
-                    id={pokemon.id}
-                    name={pokemon.name}
-                    type={pokemon.type}
-                    imageUrl={pokemon.imageUrl}
-                />
-            ))}
+            <p>Mostrando {listaFiltrada.length} Pokemón(s)</p>
+
+            {listaFiltrada.length === 0 ? (
+                <p>Nenhum Pokemón encontrado para essa busca</p>
+            ) :
+
+                listaFiltrada.map((pokemon) => (
+                    <PokemonCard
+                        key={pokemon.id}
+                        id={pokemon.id}
+                        name={pokemon.name}
+                        type={pokemon.type}
+                        imageUrl={pokemon.imageUrl}
+                    />
+
+                ))}
         </section>
     )
 }
