@@ -30,7 +30,20 @@ const POKEMONS = [
         imageUrl:
             'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
     },
-
+    {
+        id: 38,
+        name: 'Ninetales',
+        type: 'Fogo',
+        imageUrl:
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png',
+    },
+    {
+        id: 64,
+        name: 'Kadabra',
+        type: 'Psíquico',
+        imageUrl:
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/64.png',
+    },
 ]
 
 function PokemonList() {
@@ -43,32 +56,39 @@ function PokemonList() {
 
     return (
         <section>
-            <label htmlFor="busca">Buscar por nome: </label>
-            <input
-                id="busca"
-                type="search"
-                value={filtro}
-                onChange={(e) => setFiltro(e.target.value)}
-                placeholder="Ex.: char"
+            <div className='search-container'>
+                <label htmlFor="busca">Buscar por nome: </label>
+                <input
+                    id="busca"
+                    type="search"
+                    value={filtro}
+                    onChange={(e) => setFiltro(e.target.value)}
+                    placeholder="Ex.: char"
+                />
+            </div>
 
-            />
             <p>Mostrando {listaFiltrada.length} Pokemón(s)</p>
 
-            {listaFiltrada.length === 0 ? (
-                <p>Nenhum Pokemón encontrado para essa busca</p>
-            ) :
+            {
+                listaFiltrada.length === 0 ? (
+                    <p>Nenhum Pokemón encontrado para essa busca</p>
+                ) : (
 
-                listaFiltrada.map((pokemon) => (
-                    <PokemonCard
-                        key={pokemon.id}
-                        id={pokemon.id}
-                        name={pokemon.name}
-                        type={pokemon.type}
-                        imageUrl={pokemon.imageUrl}
-                    />
 
-                ))}
-        </section>
+                    <div className="cards-container">
+                        {listaFiltrada.map((pokemon) => (
+                            <PokemonCard
+                                key={pokemon.id}
+                                id={pokemon.id}
+                                name={pokemon.name}
+                                type={pokemon.type}
+                                imageUrl={pokemon.imageUrl}
+                            />
+                        ))}
+                    </div>
+                )
+            }
+        </section >
     )
 }
 

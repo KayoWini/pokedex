@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav>
+    <nav className="pokedex-nav">
       <a href="#">Início</a>
       <a href="#">Pokémon</a>
       <a href="#">Sobre</a>

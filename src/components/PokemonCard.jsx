@@ -1,6 +1,6 @@
 function PokemonCard({ id, name, type, imageUrl }) {
     return (
-        <div>
+        <div className="pokemon-card">
             <img src={imageUrl} alt={name} />
             <h2>
                 #{String(id).padStart(3, '0')} — {name}
